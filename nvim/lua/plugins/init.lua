@@ -12,45 +12,71 @@ return {
       require "configs.lspconfig"
     end,
   },
+  -- smooth scroll
   {
-    "windwp/nvim-ts-autotag",
-    ft = {
-      "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue", "tsx", "jsx", "rescript",
-      "xml",
-      "php",
-      "markdown",
-      "astro", "glimmer", "handlebars", "hbs"
-    },
+    "karb94/neoscroll.nvim",
+    event = "BufReadPost",
+    config = function ()
+      require('neoscroll').setup({
+        mappings = {                 -- Keys to be mapped to their corresponding default scrolling animation
+            '<C-u>', '<C-d>',
+            '<C-b>', '<C-f>',
+            '<C-y>', '<C-e>',
+            'zt', 'zz', 'zb',
+        },
+        hide_cursor = false,
+      })
+      neoscroll = require('neoscroll')
+      local keymap = {
+        ["<C-k>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
+        ["<C-j>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
+      }
+      local modes = { 'n', 'v', 'x'}
+      for key, func in pairs(keymap) do
+        vim.keymap.set(modes, key, func)
+      end
+    end
+  },
+  {
+    "andweeb/presence.nvim",
+    event = "VeryLazy",
     config = function()
-      require("nvim-ts-autotag").setup()
-    end,
+      require("presence").setup({
+        neovim_image_text = "Elaina my beloved",
+        main_image = "file",
+      })
+    end
   },
   {
-    "HiPhish/nvim-ts-rainbow2",
-    event = { "BufReadPost", "BufNewFile" },
+    "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
   },
   {
-    require('telescope').setup {
-  defaults = {
-    file_ignore_patterns = { -- add any file patterns you want to ignore
-      "node_modules",
-      ".git",
-      "target",
-      "dist",
+    require("telescope").setup({
+      defaults = {
+        path_display = { "smart" },
+        file_ignore_patterns = { "%.git/" }, -- Ignore `.git` folder
+        cwd = vim.fn.getcwd(),
+      },
+    })
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      actions = {
+        open_file = {
+          quit_on_open = true
+        }
+      }
     },
-    path_display = {
-      "smart", -- or "smart"
-    },
-  },
-}
-  },
-  {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
-  	},
-  },
+  }
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
 }
