@@ -36,7 +36,7 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '48px'
+    top: '40'
     right: '8px'
     bottom: '8px'
     left: '8px'
@@ -48,7 +48,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#8dbcff'
+      color: '#a89984'
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.

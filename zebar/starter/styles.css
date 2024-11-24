@@ -1,0 +1,164 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+:root {
+  --bg-dark: #282828;     /* Gruvbox dark background */
+  --bg-light: #ebdbb2;    /* Gruvbox light background */
+  --fg-dark: #a89984;     /* Gruvbox foreground */
+  --fg-light: #ebdbb2;    /* Gruvbox light foreground */
+  --accent: #fabd2f;      /* Gruvbox yellow accent */
+  --error: #fb4934;       /* Gruvbox red for errors */
+  --good: #b8bb26;        /* Gruvbox green */
+  --highlight: #d79921;   /* Gruvbox yellow for highlights */
+  --border: #504945;      /* Gruvbox border color */
+  --bg0-hard: #1d2021;    /* Gruvbox darker background */
+  --bg1: #3c3836;         /* Gruvbox medium background */
+}
+
+i {
+  color: var(--fg-light);
+  margin-right: 7px;
+}
+
+body {
+  color: var(--fg-light);
+  font-family: "RobotoMono Nerd Font", ui-monospace, monospace;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: transparent;
+}
+
+#root {
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding-top: 2px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background: transparent;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  background-color: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 15px;
+  justify-self: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: 700;
+}
+
+.right {
+  justify-self: end;
+  background-color: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 15px;
+  padding-top: 4px; 
+  padding-bottom: 4px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-weight: 600;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.network,
+.memory,
+.cpu,
+.battery {
+  margin-right: 12px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+  gap: 2;
+  background-color: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 15px;
+}
+
+.workspaces i {
+  margin-left: 25px;
+  margin-right: 20px;
+}
+
+.workspace {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  width: 5px;
+  height: 12px;
+  padding: 6px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  background-color: var(--bg1);
+  
+  &.displayed {
+    background: var(--bg0-hard);
+  }
+  
+  &.focused,
+  &:hover {
+    background: var(--accent);
+  }
+}
+
+.binding-mode,
+.tiling-direction {
+  background: var(--bg1);
+  color: var(--fg-light);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+
+.cpu .high-usage {
+  color: var(--error);
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
+
+.date {
+  margin-right: 10px;
+}
