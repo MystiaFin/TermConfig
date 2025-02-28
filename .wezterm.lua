@@ -9,11 +9,11 @@ config.max_fps = 144
 config.animation_fps = 1
 config.term = "xterm-256color"
 
-config.font = wezterm.font("CommitMono Nerd Font Mono")
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.cell_width = 0.9
 config.window_background_opacity = 0.85
 config.prefer_egl = true
-config.font_size = 13
+config.font_size = 10
 
 config.window_padding = {
   left = 4,
@@ -27,10 +27,10 @@ config.use_fancy_tab_bar = true
 
 wezterm.on("toggle-colorscheme", function(window, pane)
   local overrides = window:get_config_overrides() or {}
-  if overrides.color_scheme == "Gruvbox Dark" then
-    overrides.color_scheme = "Gruvbox Light"
+  if overrides.color_scheme == "Catppuccin Mocha" then
+    overrides.color_scheme = "Catppuccin Latte"
   else
-    overrides.color_scheme = "Gruvbox Dark"
+    overrides.color_scheme = "Catppuccin Mocha"
   end
   window:set_config_overrides(overrides)
 end)
@@ -105,51 +105,51 @@ config.keys = {
   },
 }
 
-config.color_scheme = "Gruvbox Dark"
+config.color_scheme = "Catppuccin Mocha"
 config.colors = {
-  background = "#282828",
-  cursor_border = "#ebdbb2",
-  cursor_bg = "#ebdbb2",
-  foreground = "#d79921",
-  cursor_fg = "#282828",
-  selection_bg = "#3c3836",
-  selection_fg = "#ebdbb2",
+  background = "#1E1E2E",
+  cursor_border = "#F5C2E7",
+  cursor_bg = "#F5C2E7",
+  foreground = "#CDD6F4",
+  cursor_fg = "#1E1E2E",
+  selection_bg = "#585B70",
+  selection_fg = "#F5E0DC",
 
-  ansi = { "#3c3836", "#fb4934", "#b8bb26", "#fabd2f", "#83a598", "#d3869b", "#8ec07c", "#ebdbb2" },
-  brights = { "#665c54", "#fb4934", "#b8bb26", "#fabd2f", "#83a598", "#d3869b", "#8ec07c", "#ebdbb2" },
+  ansi = { "#6C7086", "#F38BA8", "#A6E3A1", "#F9E2AF", "#89B4FA", "#F5C2E7", "#94E2D5", "#BAC2DE" },
+  brights = { "#45475A", "#F38BA8", "#A6E3A1", "#F9E2AF", "#89B4FA", "#F5C2E7", "#94E2D5", "#A6ADC8" },
 
   tab_bar = {
-    background = "#282828",
+    background = "#1E1E2E",
     active_tab = {
-      bg_color = "#3c3836",
-      fg_color = "#ebdbb2",
+      bg_color = "#313244",
+      fg_color = "#F5E0DC",
       intensity = "Normal",
       underline = "None",
       italic = false,
       strikethrough = false,
     },
     inactive_tab = {
-      bg_color = "#282828",
-      fg_color = "#7c6f64",
+      bg_color = "#1E1E2E",
+      fg_color = "#7F849C",
       intensity = "Normal",
       underline = "None",
       italic = false,
       strikethrough = false,
     },
     new_tab = {
-      bg_color = "#282828",
-      fg_color = "#7c6f64",
+      bg_color = "#1E1E2E",
+      fg_color = "#7F849C",
     },
   },
 }
 
 config.window_frame = {
   font = wezterm.font({ family = "CommitMono Nerd Font Mono", weight = "Regular" }),
-  active_titlebar_bg = "#282828",
+  active_titlebar_bg = "#1E1E2E",
 }
 
 config.window_decorations = "NONE | RESIZE"
 config.default_prog = { "powershell.exe", "-NoLogo" }
 config.initial_cols = 80
-config.adjust_window_size_when_changing_font_size = false;
+config.adjust_window_size_when_changing_font_size = false
 return config
